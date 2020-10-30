@@ -1,0 +1,19 @@
+name: Publish Docker image
+on:
+  push:
+    branches:
+      - master
+jobs:
+  push_to_registry:
+    name: Push Docker image to Yandex Cloud Container Registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Push to Yandex Cloud CR
+        uses: docker/build-push-action@v1
+        with:
+          username: oauth
+          password: ${{ secrets.YC_TOKEN }}
+          registry: cr.yandex/crpc3c2c6oonot11tdg5
+          tag_with_ref: true
