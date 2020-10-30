@@ -16,4 +16,5 @@ jobs:
           username: oauth
           password: ${{ secrets.YC_TOKEN }}
           registry: cr.yandex/crpc3c2c6oonot11tdg5
+          repository: hello-github-actions
           tag_with_ref: true
